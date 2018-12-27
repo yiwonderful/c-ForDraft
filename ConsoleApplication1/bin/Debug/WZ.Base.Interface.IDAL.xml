@@ -1,0 +1,854 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WZ.Base.Interface.IDAL</name>
+    </assembly>
+    <members>
+        <member name="T:WZ.Base.Interface.IDAL.IBaseRepository2`1">
+            <summary>
+            数据访问基础接口
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.CreateDataBase(System.String)">
+            <summary>
+            根据配置数据库配置名称生成Database对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Create(`0,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            新增单表数据
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Create(System.Collections.Generic.List{`0},System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            批量新增
+            </summary>
+            <param name="entityList">批量实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.CreateOutprimaryKey(`0,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            新增单表数据并返回主键值
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>主键</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Edit(`0,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            修改单表数据，根据主键值做修改
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Edit(System.Collections.Hashtable,System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            过滤条件修改
+            </summary>
+            <param name="recordField">要修改的列及数据</param>
+            <param name="SqlWhere">修改条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.InsertUpdate(`0,System.Object,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            根据主键的值来判断新增或者修改。主键值不存在则新增，存在则修改
+            </summary>
+            <param name="entity">指定的对象</param>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事务对象</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Disable(System.String,System.String,System.Int32,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            启用/禁用
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="stateColumn">状态列名</param>
+            <param name="stateColumnValue">状态列值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Delete(System.String,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            根据主键值做单表删除
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Delete(System.Collections.Generic.List{System.String},System.String,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            批量删除,根据列及值删除
+            </summary>
+            <param name="values">数据</param>
+            <param name="ColumnName">列明,如果null 默认主键删除</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Delete(System.String,System.Object,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            指定列名及列数据删除数据
+            </summary>
+            <param name="ColumnName">列名</param>
+            <param name="ColumnValue">值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.DeleteCollection(System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            自定义条件删除，完成主表删除
+            </summary>
+            <param name="SqlWhere">删除条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Get(System.Object)">
+            <summary>
+            根据主键值获取实体对象
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.Get(System.String,System.Object)">
+            <summary>
+            根据数据列及数据获取实体类
+            </summary>
+            <param name="ColumnName">数据列</param>
+            <param name="ColumnValue">数据值</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetByWhere(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            通过条件获取实体类
+            </summary>
+            <param name="SqlWhere">查询条件</param>
+            <param name="parameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetColumnValue(System.String,System.Object)">
+            <summary>
+            根据主键值，获取对应字段的数据
+            </summary>
+            <param name="ColumnName">要返回的列明</param>
+            <param name="primaryKeyValue">主键对应的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.IsExist(System.String,System.String,System.Object)">
+            <summary>
+            验证某列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.IsExist(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            验证某两列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="ColumnName2">验证的列名</param>
+            <param name="ColumnValue2">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.IsExistRecord(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            根据SqlWhere条件，判断是否存在
+            </summary>
+            <param name="SqlWhere">查询的条件</param>
+            <param name="parameters">参数</param>
+            <returns>如果存在返回True，否则False</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetAll">
+            <summary>
+            查询所有 无查询条件
+            </summary>
+            <returns>返回list泛型</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetAll(System.String,System.String)">
+            <summary>
+            查询所有，按照排序列对数据进行排序
+            </summary>
+            <param name="sortName">排序列</param>
+            <param name="orderType">正序、倒序</param>
+            <returns>返回list泛型</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetAll(WZ.Development.Commons.QueryModel)">
+            <summary>
+            获取所有 带查询条件
+            </summary>
+            <param name="queryModel">封装查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetAll(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            获取所有 自定义查询条件并按照排序列进行排序
+            </summary>
+            <param name="SqlWhere">自定义查询条件</param>
+            <param name="parameters">参数</param>
+            <param name="sortName">排序列</param>
+            <param name="orderType">正序、倒序</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetPageList(WZ.Development.Commons.QueryModel)">
+            <summary>
+            查询 带查询条件 有分页
+            </summary>
+            <param name="queryModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetReportData(System.String,System.String)">
+            <summary>
+            根据指定列及数据获取数据
+            </summary>
+            <param name="fieldName">数据列</param>
+            <param name="value">字段数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlValueDataSet(System.String)">
+            <summary>
+            执行SQL查询语句返回dataSet
+            </summary>
+            <param name="strSql">查询语句</param>
+            <returns>返回dataSet</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlValueTable(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <returns>返回dataTable字符串</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlValueList(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="pageIndex">页面</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlValueList``1(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL语句返回分页后的数据
+            </summary>
+            <typeparam name="TT">返回数据实体</typeparam>
+            <param name="strSql">SQL语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <returns>自定义数据集合</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlValueList(System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlValueList``1(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlExecute(System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlExecute(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事务对象</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlExecute(System.Collections.Generic.List{System.String},System.Data.Common.DbTransaction)">
+            <summary>
+            批量执行一些特殊的语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <returns>执行成功或失败</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlExecuteFirst(System.String,System.Data.Common.DbTransaction,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL 语句 返回第一行第一列的值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="trans">事物</param>
+            <param name="parameters">参数集合</param>
+            <returns>第一行第一列</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.StoreProcExecute_NonQuery(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <returns>影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.StoreProcExecuteList(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <returns>返回查询集合</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.StoreProcExecute_Scalar(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <returns>返回第一行第一列的值</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.SqlTable(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行SQL查询语句，返回所有记录的List集合。
+            </summary>
+            <param name="sql">SQL查询语句</param>
+            <param name="parameters">SQL查询参数</param>
+            <param name="trans">事务对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetMaxValue(System.String,System.String,System.Object)">
+            <summary>
+            通过判断列获取指定列的值，最大值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的名称</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <returns>指定列的最大值</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.GetMinValue(System.String,System.String,System.Object)">
+            <summary>
+            通过判断列获取指定列的值，最小值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的名称</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <returns>指定列的最小值</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.CreateTransaction(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            创建事务对象,传入数据库连接
+            </summary>
+            <param name="db">数据库连接</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository2`1.CreateTransaction(System.Data.IsolationLevel)">
+            <summary>
+            打开数据库连接，并创建事务对象
+            </summary>
+            <param name="level">事务级别</param>
+        </member>
+        <member name="T:WZ.Base.Interface.IDAL.IBaseRepository`1">
+            <summary>
+            数据访问基础接口
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.CreateDataBase(System.String,System.String)">
+            <summary>
+            创建数据库连接
+            </summary>
+            <param name="connString">数据库连接key</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Create(`0,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            新增单表数据
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Create(System.Collections.Generic.List{`0},System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            批量新增
+            </summary>
+            <param name="entityList">批量实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.CreateOutprimaryKey(`0,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            新增单表数据并返回主键值
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>主键</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Edit(`0,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            修改单表数据，根据主键值做修改
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Edit(System.Collections.Hashtable,System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            过滤条件修改
+            </summary>
+            <param name="recordField">要修改的列及数据</param>
+            <param name="SqlWhere">修改条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.InsertUpdate(`0,System.Object,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            根据主键的值来判断新增或者修改。主键值不存在则新增，存在则修改
+            </summary>
+            <param name="entity">指定的对象</param>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Disable(System.String,System.String,System.Int32,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            启用/禁用
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="stateColumn">状态列名</param>
+            <param name="stateColumnValue">状态列值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Delete(System.String,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            根据主键值做单表删除
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Delete(System.Collections.Generic.List{System.String},System.String,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            批量删除,根据列及值删除
+            </summary>
+            <param name="values">数据</param>
+            <param name="ColumnName">列明,如果null 默认主键删除</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Delete(System.String,System.Object,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            指定列名及列数据删除数据
+            </summary>
+            <param name="ColumnName">列名</param>
+            <param name="ColumnValue">值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.DeleteCollection(System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            自定义条件删除，完成主表删除
+            </summary>
+            <param name="SqlWhere">删除条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Get(System.Object,System.String,System.String)">
+            <summary>
+            根据主键值获取实体对象
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.Get(System.String,System.Object,System.String,System.String)">
+            <summary>
+            根据数据列及数据获取实体类
+            </summary>
+            <param name="ColumnName">数据列</param>
+            <param name="ColumnValue">数据值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetByWhere(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            通过条件获取实体类
+            </summary>
+            <param name="SqlWhere">查询条件</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetColumnValue(System.String,System.Object,System.String,System.String)">
+            <summary>
+            根据主键值，获取对应字段的数据
+            </summary>
+            <param name="ColumnName">要返回的列明</param>
+            <param name="primaryKeyValue">主键对应的数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.IsExist(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            验证某列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.IsExist(System.String,System.String,System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            验证某两列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="ColumnName2">验证的列名</param>
+            <param name="ColumnValue2">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.IsExistRecord(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            根据SqlWhere条件，判断是否存在
+            </summary>
+            <param name="SqlWhere">查询的条件</param>
+            <param name="parameters">参数</param>
+            <returns>如果存在返回True，否则False</returns>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetAll(System.String,System.String)">
+            <summary>
+            查询所有 无查询条件
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回list泛型</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetAll(System.String,System.String,System.String,System.String)">
+            <summary>
+            查询所有，按照排序列对数据进行排序
+            </summary>
+            <param name="sortName">排序列</param>
+            <param name="orderType">正序、倒序</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回list泛型</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetAll(WZ.Development.Commons.QueryModel,System.String,System.String)">
+            <summary>
+            获取所有 带查询条件
+            </summary>
+            <param name="queryModel">封装查询条件</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetAll(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String,System.String,System.String)">
+            <summary>
+            获取所有 自定义查询条件并按照排序列进行排序
+            </summary>
+            <param name="SqlWhere">自定义查询条件</param>
+            <param name="parameters">参数</param>
+            <param name="sortName">排序列</param>
+            <param name="orderType">正序、倒序</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetPageList(WZ.Development.Commons.QueryModel,System.String,System.String)">
+            <summary>
+            查询 带查询条件 有分页
+            </summary>
+            <param name="queryModel"></param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetReportData(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据指定列及数据获取数据
+            </summary>
+            <param name="fieldName">数据列</param>
+            <param name="value">字段数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlValueDataSet(System.String,System.String,System.String)">
+            <summary>
+            执行SQL查询语句返回dataSet
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回dataSet</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlValueTable(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回dataTable字符串</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlValueList(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="pageIndex">页面</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlValueList``1(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL语句返回分页后的数据
+            </summary>
+            <typeparam name="TT">返回数据实体</typeparam>
+            <param name="strSql">SQL语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>自定义数据集合</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlValueList(System.String,System.String,System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlValueList``1(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlExecute(System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlExecute(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlExecute(System.Collections.Generic.List{System.String},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            批量执行一些特殊的语句
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行成功或失败</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlExecuteFirst(System.String,System.Data.Common.DbTransaction,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL 语句 返回第一行第一列的值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="trans">事物</param>
+            <param name="parameters">参数集合</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>第一行第一列</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.StoreProcExecute_NonQuery(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.StoreProcExecute_Scalar(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回第一行第一列的值</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.StoreProcExecuteList(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回查询集合</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.SqlTable(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行SQL查询语句，返回所有记录的List集合。
+            </summary>
+            <param name="sql">SQL查询语句</param>
+            <param name="parameters">SQL查询参数</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetMaxValue(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            通过判断列获取指定列的值，最大值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的名称</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>指定列的最大值</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.GetMinValue(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            通过判断列获取指定列的值，最小值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的名称</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>指定列的最小值</returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.CreateTransaction(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String)">
+            <summary>
+            创建事务对象,传入数据库连接
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <param name="db">数据库连接</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.Interface.IDAL.IBaseRepository`1.CreateTransaction(System.Data.IsolationLevel,System.String,System.String)">
+            <summary>
+            打开数据库连接，并创建事务对象
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <param name="level">事务级别</param>
+        </member>
+    </members>
+</doc>

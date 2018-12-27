@@ -1,0 +1,1117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WZ.Base.DAL_SQL</name>
+    </assembly>
+    <members>
+        <member name="T:WZ.Base.DAL_SQL.BaseRepository`1">
+            <summary>
+            数据访问基类
+            </summary>
+            <typeparam name="T">models</typeparam>
+        </member>
+        <member name="F:WZ.Base.DAL_SQL.BaseRepository`1.GuidEmpty">
+            <summary>
+            空guid
+            </summary>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.CreateDataBase(System.String,System.String)">
+            <summary>
+            根据配置数据库配置名称生成Database对象
+            </summary>
+            <param name="connString">连接数据库key</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Create(`0,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            新增实体类
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Create(System.Collections.Generic.List{`0},System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            批量新增实体类  
+            </summary>
+            <param name="entityList">实体集合</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.CreateOutprimaryKey(`0,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            新增并返回主键值
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>自增长</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Edit(`0,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            修改单表数据，根据主键值做修改
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Edit(System.Collections.Hashtable,System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            批量修改
+            </summary>
+            <param name="recordField">要修改的列与值</param>
+            <param name="SqlWhere">修改条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.InsertUpdate(`0,System.Object,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            根据主键的值来判断新增或者修改。主键值不存在则新增，存在则修改
+            </summary>
+            <param name="entity">指定的对象</param>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Disable(System.String,System.String,System.Int32,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            启用/禁用
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="stateColumn">状态列名</param>
+            <param name="stateColumnValue">状态列值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Delete(System.String,System.Object,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            指定列名及列数据删除数据
+            </summary>
+            <param name="ColumnName">列名</param>
+            <param name="ColumnValue">值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Delete(System.String,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            根据主键值做单表删除
+            </summary>
+            <param name="primaryKeyValue">主键ID</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Delete(System.Collections.Generic.List{System.String},System.String,System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            批量删除,根据列及值删除
+            </summary>
+            <param name="listData">数据</param>
+            <param name="primaryKeyName">列明,如果null 默认已主键删除</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.DeleteCollection(System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            自定义条件删除
+            </summary>
+            <param name="SqlWhere">删除条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Get(System.Object,System.String,System.String)">
+            <summary>
+            通过主键值获取实体对象
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.Get(System.String,System.Object,System.String,System.String)">
+            <summary>
+            通过其他数据列获取实体类
+            </summary>
+            <param name="primaryKey">数据列</param>
+            <param name="strValue">数据值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetByWhere(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            通过条件获取实体类
+            </summary>
+            <param name="SqlWhere">查询条件</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetColumnValue(System.String,System.Object,System.String,System.String)">
+            <summary>
+            根据主键值，获取某列的数据
+            </summary>
+            <param name="ColumnName">要返回的列明</param>
+            <param name="primaryKeyValue">主键对应的数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.IsExist(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            验证某列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.IsExist(System.String,System.String,System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            验证某两列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="ColumnName2">验证的列名</param>
+            <param name="ColumnValue2">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.IsExistRecord(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            根据SqlWhere条件，判断是否存在记录
+            </summary>
+            <param name="SqlWhere">查询的条件</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>如果存在返回True，否则False</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetAll(System.String,System.String)">
+            <summary>
+            查询所有
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetAll(System.String,System.String,System.String,System.String)">
+            <summary>
+            查询所有
+            </summary>
+            <param name="sortName">排序列</param>
+            <param name="orderType">正序、倒序</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetAll(WZ.Development.Commons.QueryModel,System.String,System.String)">
+            <summary>
+            查询所有 不带分页 可查询99999条数据
+            </summary>
+            <param name="queryModel">查询封装类</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetAll(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String,System.String,System.String)">
+            <summary>
+            查询所有
+            </summary>
+            <param name="SqlWhere">过滤条件</param>
+            <param name="parameters">参数</param>
+            <param name="sortName">排序列名</param>
+            <param name="orderType">正序、倒序</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetReportDataGetPageList(WZ.Development.Commons.QueryModel,System.String,System.String)">
+            <summary>
+            查询多条记录 带分页
+            </summary>
+            <param name="queryModel">查询封装类</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetPageList(WZ.Development.Commons.QueryModel,System.String,System.String)">
+            <summary>
+            查询多条记录 带分页
+            </summary>
+            <param name="queryModel">查询封装类</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetReportData(System.String,System.String,System.String,System.String)">
+            <summary>
+            根据指定列及数据获取数据
+            </summary>
+            <param name="fieldName">数据列</param>
+            <param name="value">字段数据</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.CreateTransaction(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String)">
+            <summary>
+            创建事务对象
+            </summary>
+            <param name="db">数据库连接</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.CreateTransaction(System.Data.IsolationLevel,System.String,System.String)">
+            <summary>
+            创建事务对象
+            </summary>
+            <param name="level">事务级别</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueDataSet(System.String,System.String,System.String)">
+            <summary>
+            执行SQL查询语句返回dataSet
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回dataSet</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueTable(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="parameters">参数</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回dataTable字符串</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueList(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueList``1(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL语句返回分页后的数据
+            </summary>
+            <typeparam name="TT">返回数据实体</typeparam>
+            <param name="strSql">SQL语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>自定义数据集合</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueList(System.String,System.String,System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueList``1(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlValueList(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">SQL语句</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlExecute(System.String,System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlExecute(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlExecuteFirst(System.String,System.Data.Common.DbTransaction,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            执行SQL 语句 返回第一行第一列的值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="trans">事物</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>第一行第一列</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlExecute(System.Collections.Generic.List{System.String},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="listSql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>执行成功或失败</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.StoreProcExecute_NonQuery(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.StoreProcExecuteList(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回数据表集合的字符串格式</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.StoreProcExecute_Scalar(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回第一行第一列的值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.SqlTable(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            执行SQL查询语句，返回所有记录的List集合。
+            </summary>
+            <param name="sql">SQL查询语句</param>
+            <param name="parameters">SQL查询参数</param>
+            <param name="trans">事务对象</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>泛型集合</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetMaxValue(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            通过判断列获取指定列的值，最大值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的值</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>指定列的最大值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetMinValue(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            通过判断列获取指定列的值，最小值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的值</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>指定列的最小值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.ReaderToList(System.Data.IDataReader)">
+            <summary>
+            将结果集转换为list
+            </summary>
+            <param name="objReader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetDifferentCollection(`0,`0)">
+            <summary>
+             获取新实体类修改的属性及值
+            </summary>
+            <param name="oldEntity">修改前实体</param>
+            <param name="newEntity">修改后实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetPropertyVale(`0,System.String)">
+            <summary>
+            获取实体类属性的值
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="propertyName">属性名</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetInsertSql(`0,System.Collections.Generic.List{System.Data.Common.DbParameter}@)">
+            <summary>
+            生成Insert SQL 语句
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="parameters">参数值集合</param>
+            <returns>Insert 语句</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetInsertSql(System.Collections.Generic.List{`0},System.Collections.Generic.List{System.Data.Common.DbParameter}@)">
+            <summary>
+            生成批量Insert SQL 语句
+            </summary>
+            <param name="listEntity">多个实体</param>
+            <param name="parameters">参数值集合</param>
+            <returns>Insert 语句</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetUpdataSql(System.String,System.String,System.Collections.Hashtable,System.Collections.Generic.List{System.Data.Common.DbParameter}@)">
+            <summary>
+            生成Updata SQL 语句
+            </summary>
+            <param name="tableName">更新的表名</param>
+            <param name="SqlWhere">过滤条件</param>
+            <param name="hb">要修改的列、值</param>
+            <param name="parameters">参数值集合</param>
+            <returns>Updata 语句</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetRecordCount(System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            获取数据条目数
+            </summary>
+            <param name="where">查询条件</param>
+            <param name="tableName">表名</param>
+            <param name="parameters">参数</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.BindWhere(System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Data.Common.DbParameter}@)">
+            <summary>
+            解析封装where条件
+            </summary>
+            <param name="tableName"></param>
+            <param name="whereClause"></param>
+            <param name="foreignKeys"></param>
+            <param name="parameters">参数值集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetTableNameByModel">
+            <summary>
+            获取实体类对应的表名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetPrimaryKey(System.String)">
+            <summary>
+            获取主键
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.ReaderToList``1(System.Data.IDataReader)">
+            <summary>
+            将结果集转换为list
+            </summary>
+            <param name="objReader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetAttrColumnsByAttributeName">
+            <summary>
+            获取实体类的外部特性列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.foreignKeyProcess(System.Collections.Hashtable,System.String@,System.String@,System.String,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            外键处理
+            </summary>
+            <param name="attrColumns">特性列</param>
+            <param name="columns">列</param>
+            <param name="joinTableName">外链接表</param>
+            <param name="tableName">主表</param>
+            <param name="foreignKeys">外键表列名</param>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetTableOtherName(System.Int32)">
+            <summary>
+            获取表别名
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.ParseColumns(System.String,System.String)">
+            <summary>
+            获取主表列
+            </summary>
+            <param name="tableName">主表名 或者主表别名</param>
+            <param name="columns"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.GetSqlColumnByEntity(System.String)">
+            <summary>
+            获取主表的列名 列名=别名+列名
+            </summary>
+            <param name="TableOtherName">主表别名</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.setWhere(System.String[],System.Int32,System.String@,System.Collections.Generic.List{System.Data.Common.DbParameter}@)">
+            <summary>
+            解析 查询条件语句
+            </summary>
+            <param name="arr">查询条件</param>
+            <param name="index">索引</param>
+            <param name="where">where条件</param>
+            <param name="parameters">参数值集合</param>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.BindWhereExt(System.Collections.Hashtable,System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter}@)">
+            <summary>
+            解析封装where条件（多表）
+            </summary>
+            <param name="attrColumns"></param>
+            <param name="tableName"></param>
+            <param name="whereClause"></param>
+            <param name="parameters">参数值集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.TypeToDbType(System.Type)">
+            <summary>
+            转换.NET的对象类型到数据库类型
+            </summary>
+            <param name="t">.NET的对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository`1.OperationLog(`0,System.String,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            操作日志
+            </summary>
+            <param name="entity"></param>
+            <param name="operationType"></param>
+            <param name="messageDataLog"></param>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WZ.Base.DAL_SQL.BaseRepository_SQL`1">
+            <summary>
+            数据访问基类
+            </summary>
+            <typeparam name="T">models</typeparam>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.CreateDataBase(System.String)">
+            <summary>
+            根据配置数据库配置名称生成Database对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Create(`0,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            新增实体类
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Create(System.Collections.Generic.List{`0},System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            批量新增实体类  
+            </summary>
+            <param name="entityList">实体集合</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.CreateOutprimaryKey(`0,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            新增并返回主键值
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>自增长</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Edit(`0,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            修改单表数据，根据主键值做修改
+            </summary>
+            <param name="entity">实体类</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Edit(System.Collections.Hashtable,System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            批量修改
+            </summary>
+            <param name="recordField">要修改的列与值</param>
+            <param name="SqlWhere">修改条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.InsertUpdate(`0,System.Object,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            根据主键的值来判断新增或者修改。主键值不存在则新增，存在则修改
+            </summary>
+            <param name="entity">指定的对象</param>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事务对象</param>
+            <returns>执行返回</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Disable(System.String,System.String,System.Int32,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            启用/禁用
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <param name="stateColumn">状态列名</param>
+            <param name="stateColumnValue">状态列值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Delete(System.String,System.Object,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            指定列名及列数据删除数据
+            </summary>
+            <param name="ColumnName">列名</param>
+            <param name="ColumnValue">值</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Delete(System.String,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            根据主键值做单表删除
+            </summary>
+            <param name="primaryKeyValue">主键ID</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Delete(System.Collections.Generic.List{System.String},System.String,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            批量删除,根据列及值删除
+            </summary>
+            <param name="listData">数据</param>
+            <param name="primaryKeyName">列明,如果null 默认已主键删除</param>
+            <param name="userId">操作人ID</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.DeleteCollection(System.String,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            自定义条件删除
+            </summary>
+            <param name="SqlWhere">删除条件</param>
+            <param name="userId">操作人ID</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事物</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Get(System.Object)">
+            <summary>
+            通过主键值获取实体对象
+            </summary>
+            <param name="primaryKeyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.Get(System.String,System.Object)">
+            <summary>
+            通过其他数据列获取实体类
+            </summary>
+            <param name="primaryKey">数据列</param>
+            <param name="strValue">数据值</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetByWhere(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            通过条件获取实体类
+            </summary>
+            <param name="SqlWhere">查询条件</param>
+            <param name="parameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetColumnValue(System.String,System.Object)">
+            <summary>
+            根据主键值，获取某列的数据
+            </summary>
+            <param name="ColumnName">要返回的列明</param>
+            <param name="primaryKeyValue">主键对应的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.IsExist(System.String,System.String,System.Object)">
+            <summary>
+            验证某列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.IsExist(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            验证某两列的值是否存在
+            </summary>
+            <param name="ColumnName">验证的列名</param>
+            <param name="ColumnValue">验证列的数据</param>
+            <param name="ColumnName2">验证的列名</param>
+            <param name="ColumnValue2">验证列的数据</param>
+            <param name="primaryKeyValue">主键的值，用来过滤自己的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.IsExistRecord(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            根据SqlWhere条件，判断是否存在记录
+            </summary>
+            <param name="SqlWhere">查询的条件</param>
+            <param name="parameters">参数</param>
+            <returns>如果存在返回True，否则False</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetAll">
+            <summary>
+            查询所有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetAll(System.String,System.String)">
+            <summary>
+            查询所有
+            </summary>
+            <param name="sortName">排序列</param>
+            <param name="orderType">正序、倒序</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetAll(WZ.Development.Commons.QueryModel)">
+            <summary>
+            查询所有 不带分页 可查询99999条数据
+            </summary>
+            <param name="queryModel">查询封装类</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetAll(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.String,System.String)">
+            <summary>
+            查询所有
+            </summary>
+            <param name="SqlWhere">过滤条件</param>
+            <param name="parameters">参数</param>
+            <param name="sortName">排序列名</param>
+            <param name="orderType">正序、倒序</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetPageList(WZ.Development.Commons.QueryModel)">
+            <summary>
+            查询多条记录 带分页
+            </summary>
+            <param name="queryModel">查询封装类</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetReportData(System.String,System.String)">
+            <summary>
+            根据指定列及数据获取数据
+            </summary>
+            <param name="fieldName">数据列</param>
+            <param name="value">字段数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.CreateTransaction(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            创建事务对象
+            </summary>
+            <param name="db">数据库连接</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.CreateTransaction(System.Data.IsolationLevel)">
+            <summary>
+            创建事务对象
+            </summary>
+            <param name="level">事务级别</param>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueDataSet(System.String)">
+            <summary>
+            执行SQL查询语句返回dataSet
+            </summary>
+            <param name="strSql">查询语句</param>
+            <returns>返回dataSet</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueTable(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="parameters">参数</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <returns>返回dataTable字符串</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueList(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句并分页
+            </summary>
+            <param name="strSql">查询语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueList``1(System.String,System.Int32,System.Int32,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL语句返回分页后的数据
+            </summary>
+            <typeparam name="TT">返回数据实体</typeparam>
+            <param name="strSql">SQL语句</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页量</param>
+            <param name="parameters">参数</param>
+            <returns>自定义数据集合</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueList(System.String)">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueList``1(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlValueList(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL查询语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">SQL语句</param>
+            <returns>返回实体对象</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlExecute(System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlExecute(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="parameters">参数</param>
+            <param name="trans">事务对象</param>
+            <returns>返回执行SQL语句影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlExecuteFirst(System.String,System.Data.Common.DbTransaction,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            执行SQL 语句 返回第一行第一列的值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="trans">事物</param>
+            <param name="parameters">参数</param>
+            <returns>第一行第一列</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlExecute(System.Collections.Generic.List{System.String},System.Data.Common.DbTransaction)">
+            <summary>
+            执行一些特殊的语句
+            </summary>
+            <param name="listSql">SQL语句</param>
+            <param name="trans">事务对象</param>
+            <returns>执行成功或失败</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.StoreProcExecute_NonQuery(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <returns>影响的行数</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.StoreProcExecuteList(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <returns>返回数据表集合的字符串格式</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.StoreProcExecute_Scalar(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行存储过程函数。
+            </summary>
+            <param name="storeProcName">存储过程函数</param>
+            <param name="parameters">参数集合</param>
+            <param name="trans">事务对象</param>
+            <returns>返回第一行第一列的值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.SqlTable(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction)">
+            <summary>
+            执行SQL查询语句，返回所有记录的List集合。
+            </summary>
+            <param name="sql">SQL查询语句</param>
+            <param name="parameters">SQL查询参数</param>
+            <param name="trans">事务对象</param>
+            <returns>泛型集合</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetMaxValue(System.String,System.String,System.Object)">
+            <summary>
+            通过判断列获取指定列的值，最大值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的值</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <returns>指定列的最大值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.GetMinValue(System.String,System.String,System.Object)">
+            <summary>
+            通过判断列获取指定列的值，最小值。
+            如果判断值列为空，则判断列和主键列做对比。
+            </summary>
+            <param name="resultColumn">返回列的值</param>
+            <param name="judgmentColumn">判断列</param>
+            <param name="judgmentColumnValue">判断列的值</param>
+            <returns>指定列的最小值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.BaseRepository_SQL`1.OperationLog(`0,System.String,System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            操作日志
+            </summary>
+            <param name="entity"></param>
+            <param name="operationType"></param>
+            <param name="messageDataLog"></param>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WZ.Base.DAL_SQL.SqlHelper">
+            <summary>
+            数据访问帮组类
+            </summary>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.SqlHelper.ConnString(System.String,System.String)">
+            <summary>
+            根据企来编码，获取企业的数据库名,并生成连接字符串； 
+            </summary>
+            <param name="connection">数据库连接</param>
+            <param name="EnterCode">当编码为空时，则返回主库连接字符串，当编码不为空时，则返回企业的数据库名</param>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.SqlHelper.CreateDataBase(System.String,System.String)">
+            <summary>
+            根据配置数据库配置名称生成Database对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.SqlHelper.ExecuteNonQuery(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            提交SQL语句
+            </summary>
+            <param name="strSQL">提交SQL语句</param>
+            <param name="parameters">参数值</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回是否成功</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.SqlHelper.ExecuteScalar(System.String,System.Collections.Generic.List{System.Data.Common.DbParameter},System.Data.Common.DbTransaction,System.String,System.String)">
+            <summary>
+            传入SQL语句执行语句
+            </summary>
+            <param name="strSQL">SQL语句</param>
+            <param name="parameters">参数值</param>
+            <param name="trans">事物</param>
+            <param name="connection">数据库连接</param>
+            <param name="enter_Code">企业编码</param>
+            <returns>返回第一行第一列值</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.SqlHelper.IsNullOrDbNull(System.Object)">
+            <summary>
+            判断对象是否为空
+            </summary>
+            <param name="obj">对象</param>
+            <returns>如果空返回 true 不为空返回false</returns>
+        </member>
+        <member name="M:WZ.Base.DAL_SQL.SqlHelper.addDbParameter(Microsoft.Practices.EnterpriseLibrary.Data.Database@,System.String,System.Collections.Generic.List{System.Data.Common.DbParameter})">
+            <summary>
+            添加参数
+            </summary>
+            <param name="db">数据连接</param>
+            <param name="strSQL">sql语句</param>
+            <param name="parameters">参数值</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
