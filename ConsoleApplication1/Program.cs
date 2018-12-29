@@ -733,4 +733,37 @@ namespace ConsoleApplication1
             public decimal score { get; set; }
         }
     }
+    public class ParallelInvoke
+    {
+        /// <summary>
+        /// Invoke方式一 action
+        /// </summary>
+        public void Client1()
+        {
+            //Stopwatch 可以测量一个时间间隔的运行时间，也可以测量多个时间间隔的总运行时间。一般用来测量代码执行所用的时间或者计算性能数据，在优化代码性能上可以使用Stopwatch来测量时间。
+            Stopwatch stopWatch = new Stopwatch();
+
+            Console.WriteLine("主线程：{0}线程ID ： {1}；开始", "Client1", Thread.CurrentThread.ManagedThreadId);
+            stopWatch.Start();
+            Parallel.Invoke(() => Task1("task1"), () => Task2("task2"), () => Task3("task3"));
+            stopWatch.Stop();
+            Console.WriteLine("主线程：{0}线程ID ： {1}；结束,共用时{2}ms", "Client1", Thread.CurrentThread.ManagedThreadId, stopWatch.ElapsedMilliseconds);
+        }
+
+        private void Task1(string data)
+        {
+            Thread.Sleep(5000);
+            Console.WriteLine("任务名：{0}线程ID ： {1}", data, Thread.CurrentThread.ManagedThreadId);
+        }
+
+        private void Task2(string data)
+        {
+            Console.WriteLine("任务名：{0}线程ID ： {1}", data, Thread.CurrentThread.ManagedThreadId);
+        }
+
+        private void Task3(string data)
+        {
+            Console.WriteLine("任务名：{0}线程ID ： {1}", data, Thread.CurrentThread.ManagedThreadId);
+        }
+    }
 }
